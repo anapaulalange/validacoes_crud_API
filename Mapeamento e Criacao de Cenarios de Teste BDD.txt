@@ -1,0 +1,129 @@
+Cenário 1 - Usuário registrado com credenciais validas
+
+DADO que um usuário possui conta na empresa Buggy
+QUANDO for inserir Login e Senha
+E as credenciais corresponderem aos dados armazenados na aplicação
+ENTAO o usuário será logado com sucesso
+E irá conseguir acessar seu perfil
+
+=================================================================
+Cenário 2 - Usuario registrado com credenciais invalidas
+
+DADO que um usuário possui conta na empresa Buggy
+QUANDO for inserir Login e Senha com credenciais invalidas 
+E clicar no botão 'Login'
+ENTAO retornará a mensagem "Invalid username/password"
+
+=================================================================
+Cenário 3 - Usuario não registrado - Login
+
+DADO que um usuário não possui conta na empresa Buggy
+QUANDO for preencher as informacoes no formulario de cadastro
+E não preencher o campo 'Login'
+ENTAO retornara a mensagem "Login is required"
+
+=================================================================
+Cenário 4 - Usuario não registrado - Firstname
+
+DADO que um usuário não possui conta na empresa Buggy
+QUANDO for preencher as informacoes no formulario de cadastro
+E não preencher o campo 'Firstname'
+ENTAO retornara a mensagem Firstname is required"
+
+=================================================================
+Cenário 5 - Usuario não registrado - Last Name
+
+DADO que um usuário não possui conta na empresa Buggy
+QUANDO for preencher as informacoes no formulario de cadastro
+E não preencher o campo 'Last Name'
+ENTAO retornara a mensagem "Firstname is required" **corrigir
+
+=================================================================
+Cenário 6 - Usuario não registrado - Password
+
+DADO que um usuário não possui conta na empresa Buggy
+QUANDO for preencher as informacoes no formulario de cadastro
+E não preencher o campo 'Password'
+ENTAO retornara a mensagem "Password is required"
+
+=================================================================
+Cenário 7 - Usuario nao registrado - Password diferentes
+
+DADO que um usuário não possui conta na empresa Buggy
+QUANDO for preencher as informacoes no formulario de cadastro
+E preencher o segundo campo 'Password' com uma senha diferente do campo acima
+ENTAO retornara a mensagem "Password do not match"
+
+=================================================================
+Cenário 8 - Usuario nao registrado - Password sem nenhuma letra maiuscula
+
+DADO que um usuário não possui conta na empresa Buggy
+QUANDO for preencher as informacoes no formulario de cadastro
+E preencher o campo 'Password' com uma senha sem nenhuma letra maiuscula
+ENTAO retornara a mensagem "InvalidPasswordException: Password did not conform with policy: Password must have uppercase characters" 
+
+=================================================================
+Cenário 9 - Usuario nao registrado - Password com 7 caracteres
+
+DADO que um usuário não possui conta na empresa Buggy
+QUANDO for preencher as informacoes no formulario de cadastro
+E preencher o campo 'Password' com uma senha com menos de 8 caracteres
+ENTAO retornara a mensagem "InvalidParameter: 1 validation error(s) found. - minimum field size of 6, SignUpInput.Password." **corrigir
+
+=================================================================
+Cenário 10 - Usuario nao registrado - Password sem caracteres numericos
+
+DADO que um usuário não possui conta na empresa Buggy
+QUANDO for preencher as informacoes no formulario de cadastro
+E preencher o campo 'Password' com uma senha sem caracteres numericos
+ENTAO retornara a mensagem "InvalidPasswordException: Password did not conform with policy: Password must have numeric characters" 
+
+=================================================================
+Cenário 11 - Usuario nao registrado - Password somente com caracteres numericos
+
+DADO que um usuário não possui conta na empresa Buggy
+QUANDO for preencher as informacoes no formulario de cadastro
+E preencher o campo 'Password' com uma senha somente com caracteres numericos
+ENTAO retornara a mensagem "InvalidPasswordException: Password did not conform with policy: Password not long enough"
+
+=================================================================
+Cenario 12 - Usuario nao registrado - Password sem caracteres especiais
+
+DADO que um usuário não possui conta na empresa Buggy
+QUANDO for preencher as informacoes no formulario de cadastro
+E preencher o campo 'Password' com uma senha somente com caracteres numericos
+ENTAO retornara a mensagem "InvalidPasswordException: Password did not conform with policy: Password must have symbol characters"
+
+=================================================================
+Cenario 13 - Usuario nao registrado - Username ja existente
+
+DADO que um usuário não possui conta na empresa Buggy
+QUANDO for preencher as informacoes no formulario de cadastro
+E preencher o campo 'Login' com o nome de um usuario ja existente
+ENTAO retornara a mensagem "UsernameExistsException: User already exists"
+
+=================================================================
+Cenario 14 - Registro com sucesso
+
+DADO que um usuário não possui conta na empresa Buggy
+QUANDO for preencher as informacoes no formulario de cadastro
+E preencher todos os campos corretamente
+ENTAO retornara a mensagem "Registration is successful"
+
+=================================================================
+***OBSERVAÇÕES PARA ALINHAMENTO:***
+
+- Não está visivel para o usuario qual o formato correto da senha pode fazê-lo sair da página antes de completar o cadastro (visão na experiência do cliente)
+- Cenário 5 corrigir a mesnagem - De Firstname para Last Name
+- Cenario 9: A mensagem apresentada diz que o campo deve ter no minimo 6 caracteres, correto: 8 caracteres
+- Cenario 11: alinhar se a mensagem mostrada está correta, pois a senha não pode ser somente numerica e a msg apresentada foi: "InvalidPasswordException: Password did not conform with policy: Password not long enough"
+
+
+
+
+
+
+
+
+
+

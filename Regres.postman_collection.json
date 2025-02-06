@@ -35,6 +35,8 @@
 											"    pm.expect(jsonData.data[0].id).to.be.a(\"number\");\r",
 											"    pm.expect(jsonData.data[0].email).to.be.a(\"string\");\r",
 											"    pm.expect(jsonData.data[0].first_name).to.be.a(\"string\");\r",
+											"    pm.expect(jsonData.data[0].last_name).to.be.a(\"string\");\r",
+											"    pm.expect(jsonData.data[0].avatar).to.be.a(\"string\");\r",
 											"});"
 										],
 										"type": "text/javascript",
@@ -46,11 +48,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://reqres.in/api/users?page=2",
-									"protocol": "https",
+									"raw": "{{baseURL}}/api/users?page=2",
 									"host": [
-										"reqres",
-										"in"
+										"{{baseURL}}"
 									],
 									"path": [
 										"api",
@@ -83,8 +83,7 @@
 											"pm.test(\"Testando os tipos dos campos\", () => {\r",
 											"    pm.expect(jsonData).to.be.an(\"object\");\r",
 											"    pm.expect(jsonData.id).to.be.a(\"number\");\r",
-											"    pm.expect(jsonData.token).to.be.a(\"string\");\r",
-											"   \r",
+											"    pm.expect(jsonData.token).to.be.a(\"string\");  \r",
 											"});"
 										],
 										"type": "text/javascript",
@@ -105,11 +104,9 @@
 									}
 								},
 								"url": {
-									"raw": "https://reqres.in/api/register",
-									"protocol": "https",
+									"raw": "{{baseURL}}/api/register",
 									"host": [
-										"reqres",
-										"in"
+										"{{baseURL}}"
 									],
 									"path": [
 										"api",
@@ -159,11 +156,9 @@
 									}
 								},
 								"url": {
-									"raw": "https://reqres.in/api/users/2",
-									"protocol": "https",
+									"raw": "{{baseURL}}/api/users/2",
 									"host": [
-										"reqres",
-										"in"
+										"{{baseURL}}"
 									],
 									"path": [
 										"api",
@@ -202,11 +197,9 @@
 									}
 								},
 								"url": {
-									"raw": "https://reqres.in/api/users/2",
-									"protocol": "https",
+									"raw": "{{baseURL}}/api/users/2",
 									"host": [
-										"reqres",
-										"in"
+										"{{baseURL}}"
 									],
 									"path": [
 										"api",
@@ -253,11 +246,9 @@
 									}
 								},
 								"url": {
-									"raw": "https://reqres.in/api/api/unknown/23",
-									"protocol": "https",
+									"raw": "{{baseURL}}/api/api/unknown/23",
 									"host": [
-										"reqres",
-										"in"
+										"{{baseURL}}"
 									],
 									"path": [
 										"api",
@@ -279,6 +270,24 @@
 											"// Valida o response code\r",
 											"tests[\"A chamada deve ser realizada com sucesso\"] = responseCode.code === 400;\r",
 											"\r",
+											"// Salvando response em uma variável\r",
+											"const jsonData = pm.response.json();\r",
+											"\r",
+											"// Validando campos esperados em chamada de erro\r",
+											"pm.test(\"Validando campos esperados em chamada de erro\", () => {\r",
+											"  pm.expect(jsonData.error).not.null\r",
+											"});\r",
+											"\r",
+											"// Validações do contrato de erro\r",
+											"pm.test(\"Testando os tipos dos campos de erro\", () => {\r",
+											"  pm.expect(jsonData.error).to.be.an(\"string\");\r",
+											"});\r",
+											"\r",
+											"// Validando erros\r",
+											"pm.test(\"Validando mensagem de erro\", () => {\r",
+											"    pm.expect(jsonData.error).to.eq(\"Missing password\");\r",
+											"});\r",
+											"\r",
 											""
 										],
 										"type": "text/javascript",
@@ -299,11 +308,9 @@
 									}
 								},
 								"url": {
-									"raw": "https://reqres.in/api/register",
-									"protocol": "https",
+									"raw": "{{baseURL}}/api/register",
 									"host": [
-										"reqres",
-										"in"
+										"{{baseURL}}"
 									],
 									"path": [
 										"api",

@@ -1,0 +1,321 @@
+{
+	"info": {
+		"_postman_id": "74bd1a14-580a-451c-86fd-96a4fda0bb89",
+		"name": "Regres",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17378140"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Sucesso",
+					"item": [
+						{
+							"name": "Consulta usuarios",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Valida o response code\r",
+											"tests[\"A chamada deve ser realizada com sucesso.\"] = responseCode.code === 200;\r",
+											"\r",
+											"// Salvando response em uma variável\r",
+											"const jsonData = pm.response.json();\r",
+											"\r",
+											"// Validações do contrato\r",
+											"pm.test(\"Testando os tipos dos campos\", () => {\r",
+											"    pm.expect(jsonData).to.be.an(\"object\");\r",
+											"    pm.expect(jsonData.page).to.be.a(\"number\");\r",
+											"    pm.expect(jsonData.per_page).to.be.a(\"number\");\r",
+											"    pm.expect(jsonData.total).to.be.a(\"number\");\r",
+											"    pm.expect(jsonData.total_pages).to.be.a(\"number\");\r",
+											"    pm.expect(jsonData.data[0].id).to.be.a(\"number\");\r",
+											"    pm.expect(jsonData.data[0].email).to.be.a(\"string\");\r",
+											"    pm.expect(jsonData.data[0].first_name).to.be.a(\"string\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://reqres.in/api/users?page=2",
+									"protocol": "https",
+									"host": [
+										"reqres",
+										"in"
+									],
+									"path": [
+										"api",
+										"users"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Insere usuario",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Valida o response code\r",
+											"tests[\"A chamada deve ser realizada com sucesso.\"] = responseCode.code === 200;\r",
+											"\r",
+											"// Salvando response em uma variável\r",
+											"const jsonData = pm.response.json();\r",
+											"\r",
+											"// Validações do contrato\r",
+											"pm.test(\"Testando os tipos dos campos\", () => {\r",
+											"    pm.expect(jsonData).to.be.an(\"object\");\r",
+											"    pm.expect(jsonData.id).to.be.a(\"number\");\r",
+											"    pm.expect(jsonData.token).to.be.a(\"string\");\r",
+											"   \r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"eve.holt@reqres.in\",\r\n    \"password\": \"pistol\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://reqres.in/api/register",
+									"protocol": "https",
+									"host": [
+										"reqres",
+										"in"
+									],
+									"path": [
+										"api",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Altera usuario",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Valida o response code\r",
+											"tests[\"A chamada deve ser realizada com sucesso.\"] = responseCode.code === 200;\r",
+											"\r",
+											"// Salvando response em uma variável\r",
+											"const jsonData = pm.response.json();\r",
+											"\r",
+											"// Validações do contrato\r",
+											"pm.test(\"Testando os tipos dos campos\", () => {\r",
+											"    pm.expect(jsonData).to.be.an(\"object\");\r",
+											"    pm.expect(jsonData.name).to.be.a(\"string\");\r",
+											"    pm.expect(jsonData.job).to.be.a(\"string\");\r",
+											"    pm.expect(jsonData.updatedAt).to.be.a(\"string\");\r",
+											"   \r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"morpheus\",\r\n    \"job\": \"zion resident\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://reqres.in/api/users/2",
+									"protocol": "https",
+									"host": [
+										"reqres",
+										"in"
+									],
+									"path": [
+										"api",
+										"users",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deleta usuario",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Valida o response code\r",
+											"tests[\"A chamada deve ser realizada com sucesso.\"] = responseCode.code === 204;"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://reqres.in/api/users/2",
+									"protocol": "https",
+									"host": [
+										"reqres",
+										"in"
+									],
+									"path": [
+										"api",
+										"users",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Erro",
+					"item": [
+						{
+							"name": "Consulta usuarios",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Valida o response code\r",
+											"tests[\"A chamada deve ser realizada com sucesso.\"] = responseCode.code === 404;"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://reqres.in/api/api/unknown/23",
+									"protocol": "https",
+									"host": [
+										"reqres",
+										"in"
+									],
+									"path": [
+										"api",
+										"api",
+										"unknown",
+										"23"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Insere usuario",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Valida o response code\r",
+											"tests[\"A chamada deve ser realizada com sucesso\"] = responseCode.code === 400;\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"sydney@fife\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://reqres.in/api/register",
+									"protocol": "https",
+									"host": [
+										"reqres",
+										"in"
+									],
+									"path": [
+										"api",
+										"register"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

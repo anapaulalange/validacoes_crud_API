@@ -1,0 +1,25 @@
+Desafio 3 - SQL
+
+
+- Escreva uma consulta onde o resultado retorne o nome, preço do produto e nome do fornecedor.
+
+SELECT p.nome as pnome, p.preco, f.nome as fnome
+FROM produto as p (nolock)
+INNER JOIN fornecedores as f (nolock)
+ON p.fornecedores_id = f.id ;
+
+======================================================================================================
+
+- Escreva uma consulta onde o resultado retorne nome e telefone do cliente, nome do vendedor e forma de
+pagamento.
+
+SELECT c.nome as cnome, c.telefone, pg.forma_pagamento, vr.nome as vrnome
+FROM venda as v (nolock)
+INNER JOIN vendedor as vr (nolock)
+ON v.vendedor_id = vr.id
+INNER JOIN pagamento as pg (nolock)
+ON v.pagamento_id = pg.id
+INNER JOIN cliente as c (nolock)
+ON c.id = v.cliente_id
+
+

@@ -18,7 +18,7 @@ Comportamento esperado: Quando clicar na imagem do produto o usuário deve ser r
 
 Comportamento observado: Ao clicar na imagem do produto o usuário é redirecionado para um produto diferente do escolhido.
 
-Severidade/prioridade: Alta - impacta diretamente na experiência do usuário e no fluxo da compra.
+Severidade/prioridade: ALTA - impacta diretamente na experiência do usuário e no fluxo da compra.
 
 **Observação: Esse comportamento ocorre no navegador do desktop e não no celular.**
 
@@ -43,7 +43,7 @@ Comportamento esperado: Ser possível logar com o perfil 'locked_out_user'
 
 Comportamento observado: Ao tentar utilizar o login 'locked_out_user' retorna uma mensagem que esse perfil está bloqueado para uso
 
-Severidade/prioridade: Media - esse login aparece como opção na página principal mas existem outros disponíveis para utilizacao.
+Severidade/prioridade: MEDIA - esse login aparece como opção na página principal mas existem outros disponíveis para utilizacao.
 
 EVIDÊNCIAS: evidencias BUG 002.png
 ============================================================================================================================

@@ -1,0 +1,61 @@
+CARD n. 1100
+
+Título: BUG 001 - Erro ao clica ao clicar na imagem do produto
+
+Descricao: Ao clicar na imagem do produto em interesse o usuário é redirecionado para um produto diferente.
+
+Reproducao: 
+
+      - Entrar no site: https://www.saucedemo.com/ via navegador no desktop
+      - Preencher o login = visual_user e senha = secret_sauce
+      - Clicar no menu superior esquerdo da tela e selecionar "All Items"
+      - Ao exibir a lista dos produtos escolher um produto e clicar em cima da imagem
+      - Observar o produto e valor exibidos
+
+Ambiente: Desenvolvimento ( ) Homologação (X) Produção ( )
+
+Comportamento esperado: Quando clicar na imagem do produto o usuário deve ser redirecionado para o produto escolhido e com o valor correspondente.
+
+Comportamento observado: Ao clicar na imagem do produto o usuário é redirecionado para um produto diferente do escolhido.
+
+Severidade/prioridade: Alta - impacta diretamente na experiência do usuário e no fluxo da compra.
+
+**Observação: Esse comportamento ocorre no navegador do desktop e não no celular.**
+================================================================================================================================================
+
+CARD n. 1100
+
+Título: BUG 002 - Login 'locked_out_user' está bloqueado para uso
+
+Descricao: Login 'locked_out_user' está bloqueado impossibilitando sua utilizacao
+
+Reproducao: 
+
+      - Entrar no site: https://www.saucedemo.com/
+      - Preencher o login = locked_out_user e senha = secret_sauce
+      - Irá aparecer a mensagem: "Epic sadface: Sorry, this user has been locked out."
+
+Ambiente: Desenvolvimento ( ) Homologação (X) Produção ( )
+
+Comportamento esperado: Ser possível logar com o perfil 'locked_out_user' 
+
+Comportamento observado: Ao tentar utilizar o login 'locked_out_user' retorna uma mensagem que esse perfil está bloqueado para uso
+
+Severidade/prioridade: Media - esse login aparece como opção na página principal mas existem outros disponíveis para utilizacao.
+================================================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

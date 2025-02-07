@@ -1,4 +1,4 @@
-Cenário 1 - Usuário registrado com credenciais validas
+Cenário 1 - Usuário registrado insere credenciais validas
 
 DADO que um usuário possui conta na empresa Buggy
 QUANDO for inserir Login e Senha
@@ -7,7 +7,7 @@ ENTAO o usuário será logado com sucesso
 E irá conseguir acessar seu perfil
 
 =================================================================
-Cenário 2 - Usuario registrado com credenciais invalidas
+Cenário 2 - Usuario registrado insere credenciais invalidas
 
 DADO que um usuário possui conta na empresa Buggy
 QUANDO for inserir Login e Senha com credenciais invalidas 
@@ -28,7 +28,7 @@ Cenário 4 - Usuario não registrado - Firstname
 DADO que um usuário não possui conta na empresa Buggy
 QUANDO for preencher as informacoes no formulario de cadastro
 E não preencher o campo 'Firstname'
-ENTAO retornara a mensagem Firstname is required"
+ENTAO retornara a mensagem "Firstname is required"
 
 =================================================================
 Cenário 5 - Usuario não registrado - Last Name
@@ -36,7 +36,7 @@ Cenário 5 - Usuario não registrado - Last Name
 DADO que um usuário não possui conta na empresa Buggy
 QUANDO for preencher as informacoes no formulario de cadastro
 E não preencher o campo 'Last Name'
-ENTAO retornara a mensagem "Firstname is required" **corrigir
+ENTAO retornara a mensagem "Firstname is required" 
 
 =================================================================
 Cenário 6 - Usuario não registrado - Password
@@ -68,7 +68,7 @@ Cenário 9 - Usuario nao registrado - Password com 7 caracteres
 DADO que um usuário não possui conta na empresa Buggy
 QUANDO for preencher as informacoes no formulario de cadastro
 E preencher o campo 'Password' com uma senha com menos de 8 caracteres
-ENTAO retornara a mensagem "InvalidParameter: 1 validation error(s) found. - minimum field size of 6, SignUpInput.Password." **corrigir
+ENTAO retornara a mensagem "InvalidParameter: 1 validation error(s) found. - minimum field size of 6, SignUpInput.Password." 
 
 =================================================================
 Cenário 10 - Usuario nao registrado - Password sem caracteres numericos
@@ -114,9 +114,9 @@ ENTAO retornara a mensagem "Registration is successful"
 ***OBSERVAÇÕES PARA ALINHAMENTO:***
 
 - Não está visivel para o usuario qual o formato correto da senha pode fazê-lo sair da página antes de completar o cadastro (visão na experiência do cliente)
-- Cenário 5 corrigir a mesnagem - De Firstname para Last Name
-- Cenario 9: A mensagem apresentada diz que o campo deve ter no minimo 6 caracteres, correto: 8 caracteres
-- Cenario 11: alinhar se a mensagem mostrada está correta, pois a senha não pode ser somente numerica e a msg apresentada foi: "InvalidPasswordException: Password did not conform with policy: Password not long enough"
+- Cenário 5 corrigir a mensagem - De 'Firstname' para 'Last Name'
+- Cenario 9: A mensagem apresentada diz que o campo deve ter no minimo 6 caracteres, correto: 8 caracteres 
+- Cenario 11: alinhar se a mensagem mostrada está correta, pois a senha não pode ser somente numerica e a msg apresentada nesse cenario foi: "InvalidPasswordException: Password did not conform with policy: Password not long enough"
 
 
 
